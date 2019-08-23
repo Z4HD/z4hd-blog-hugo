@@ -25,7 +25,7 @@
 languageCode = "zh-cn"
 DefaultContentLanguage = "zh"
 title = "Z4HD's Blog"
-baseurl = "https://z4hd.github.io/"
+baseurl = "https://blog.z4hd.cf/"
 theme = "Midnight"
 
 ## Allow the use of GitHub-style code fences
