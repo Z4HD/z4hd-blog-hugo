@@ -7,7 +7,7 @@ tags:
     - 虚拟机
 categories: 
     - 技术
-draft: true
+draft: false
 description: 虚拟机与宿主间交换文件的方法之一
 ---
 

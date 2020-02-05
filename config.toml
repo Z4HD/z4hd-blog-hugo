@@ -181,9 +181,7 @@ enableRobotsTXT = true
 ## see https://bluestnight.com/docs/midnight/users/shortcodes/members/#social-links
 ## See also: https://bluestnight.com/docs/midnight/users/site/social-icons/
 [params.social]
-    twitter= "z4hd1"
     github= "Z4HD"
-    telegram= "Z4WAN"
     steam= "id/Z4HD"
     youtube= "channel/UCImCCHdH_qfndgbv-6fTAow"
     email= "Z4HD@outlook.com"
