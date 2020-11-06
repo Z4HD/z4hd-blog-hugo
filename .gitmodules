@@ -1,0 +1,9 @@
+[submodule "themes/hugo-theme-dream"]
+	path = themes/hugo-theme-dream
+	url = https://github.com/g1eny0ung/hugo-theme-dream
+[submodule "themes/hugo-notice"]
+	path = themes/hugo-notice
+	url = https://github.com/martignoni/hugo-notice.git
+[submodule "themes/LoveIt"]
+	path = themes/LoveIt
+	url = https://github.com/dillonzq/LoveIt.git
