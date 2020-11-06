@@ -22,6 +22,25 @@ fingerprint = "sha256"
 
 [params.social]
 GitHub = "Z4HD"
+RSS = true
+
+[params.header]
+# 桌面端导航栏模式 ("fixed", "normal", "auto")
+desktopMode = "fixed"
+# 移动端导航栏模式 ("fixed", "normal", "auto")
+mobileMode = "auto"
+# LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
+[params.header.title]
+# LOGO 的 URL
+#logo = "/favicon.ico"
+# 标题名称
+name = "Z4HD's BLOG"
+# 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+#pre = ""
+# 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+#post = ""
+# LoveIt 新增 | 0.2.5 是否为标题显示打字机动画
+typeit = true
 
 [params.footer]
 enable = true
