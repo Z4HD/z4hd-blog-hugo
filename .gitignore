@@ -2,8 +2,10 @@
 /public
 
 # Hugo gen dir
-
 /resources
+
+# VSC Config
+.vscode/
 
 ## OS Files
 # Windows
