@@ -1,12 +1,16 @@
 ---
-title: {{ replace .TranslationBaseName "-" " " | title }}
+title: "{{ replace .TranslationBaseName "-" " " | title }}"
+subtitle: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
-author: Z4HD
-cover: /img/cover.jpg
-categories: ["未分类"]
-tags: ["tag1", "tag2"]
 draft: true
+tags: []
+category: 未分类
+
+featuredImage: ""
+featuredImagePreview: ""
+
+lightgallery: false
 ---
 
 Cut out summary from your post content here.
