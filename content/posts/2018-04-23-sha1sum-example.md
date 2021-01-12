@@ -1,11 +1,11 @@
 ---
 title: 用sha1sum批量校验文件完整性
 tags:
-  - Linux
-  - CentOS
-  - CLI
+    - CLI
+    - CentOS
+    - GNU/Linux
 categories:
-  - 实用软件
+    - 实用软件
 date: 2018-04-23T18:57:59.000Z
 ---
 

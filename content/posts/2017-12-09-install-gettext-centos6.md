@@ -1,10 +1,10 @@
 ---
 title: 在CentOS 6上使用rpm安装gettext-0.18
 tags:
-  - CentOS
-  - Linux
+    - CentOS
+    - GNU/Linux
 categories:
-  - 实用软件
+    - 实用软件
 date: 2017-12-09T17:44:00.000Z
 ---
 

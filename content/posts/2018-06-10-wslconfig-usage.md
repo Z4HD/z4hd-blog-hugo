@@ -1,11 +1,11 @@
 ---
 title: 使用 wslconfig 管理 Windows10 Linux 子系统
 tags:
-  - Windows
-  - Linux
-  - WSL
+    - GNU/Linux
+    - WSL
+    - Windows
 categories:
-  - 运维
+    - 运维
 date: 2018-06-10T13:23:34.000Z
 ---
 

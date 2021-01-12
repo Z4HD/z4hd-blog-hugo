@@ -21,6 +21,7 @@ draft: true
 ```shell
 cat /proc/driver/rtc
 ```
+
 | 名称 | 值 | 说明 |
 |:----:|:----:|:----:|
 |   `Alarm_IRQ`   |   yes/no   |    指示是否设置了自动开机  |
@@ -29,8 +30,8 @@ cat /proc/driver/rtc
 
 ### 设置自动开机
 
-```
-echo $wakeup_time >/sys/class/rtc/rtc0/wakealarm
+```shell
+echo $wakeup_time > /sys/class/rtc/rtc0/wakealarm
 ```
 
 `wakeup_time` 在*Linux.com上的某篇教程*中为需要自动开机时间的时间戳，但在部分 ASUS 笔记本上必须传入**需要自动开机的时间**与**当前时间**的时间戳之差*（也可以理解为经过指定秒数后自动开机）*才能成功设置自动开机。
