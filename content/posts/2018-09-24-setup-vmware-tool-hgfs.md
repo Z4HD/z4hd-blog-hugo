@@ -1,12 +1,12 @@
 ---
 title: Ubuntu 18.04 配置 VMware 的共享文件夹功能
-date: 2018-09-24 23:34:19
+date: 2018-09-24T23:34:19.000Z
 tags:
-    - Ubuntu
-    - VMware
-    - 虚拟机
-categories: 
-    - 技术
+  - Ubuntu
+  - VMware
+  - 虚拟机
+categories:
+  - 运维
 draft: false
 description: 虚拟机与宿主间交换文件的方法之一
 ---

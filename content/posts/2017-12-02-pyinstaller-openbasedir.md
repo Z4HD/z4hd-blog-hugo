@@ -3,9 +3,9 @@ title: PyInstaller打包单EXE时封装额外的资源文件
 tags:
   - Python
   - PyInstaller
-categories: 
-    - 技术
-date: 2017-12-02 17:05:26
+categories:
+  - 代码
+date: 2017-12-02T17:05:26.000Z
 ---
 
 众所周知 PyInstaller 可以将 Python 脚本打包成单一的可执行文件，那么如果程序需要访问自带的外部资源时该怎么办呢？

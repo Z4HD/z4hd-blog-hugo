@@ -1,8 +1,7 @@
 ---
 title: Termux 中安装 gevent 库
-date: 2017-08-11 19:04:15
+date: 2017-08-11T19:04:15.000Z
 categories:
-  - 技术
   - 手机
 tags:
   - Terumx

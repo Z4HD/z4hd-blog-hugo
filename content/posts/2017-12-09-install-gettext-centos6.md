@@ -2,11 +2,10 @@
 title: 在CentOS 6上使用rpm安装gettext-0.18
 tags:
   - CentOS
-  - VPS
   - Linux
 categories:
-  - 技术
-date: 2017-12-09 17:44:00
+  - 实用软件
+date: 2017-12-09T17:44:00.000Z
 ---
 
 Google搜索下面四个RPM包然后`rpm -ivh`安装即可

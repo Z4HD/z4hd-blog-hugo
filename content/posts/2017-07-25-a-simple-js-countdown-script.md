@@ -1,8 +1,8 @@
 ---
 title: 自用倒计时js脚本
 categories:
-  - 技术
-date: 2017-07-25 11:38:15
+  - 代码
+date: 2017-07-25T11:38:15.000Z
 description: 从jb51.net上抄的脚本，本人对其略加改造。
 ---
 

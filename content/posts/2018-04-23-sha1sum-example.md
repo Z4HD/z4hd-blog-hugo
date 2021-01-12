@@ -3,9 +3,10 @@ title: 用sha1sum批量校验文件完整性
 tags:
   - Linux
   - CentOS
+  - CLI
 categories:
-  - 技术
-date: 2018-04-23 18:57:59
+  - 实用软件
+date: 2018-04-23T18:57:59.000Z
 ---
 
 shell命令行下有 `md5sum` 、 `sha1sum` 和`sha256sum`等应用广泛的文件校验和实用程序，下面就以时下流行的 `sha1sum` 为例介绍如何批量创建和校验文件校验和。
@@ -22,7 +23,7 @@ sha1sum * > example.sha1
 
 ### 验证校验和
 
-校验`ex7ample.sha1`中列出的文件：
+校验`example.sha1`中列出的文件：
 
 ```bash
 sha1sum -c example.sha1
