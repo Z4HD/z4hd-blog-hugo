@@ -32,9 +32,7 @@ sudo apt install open-vm-tools open-vm-tools-desktop fuse
 reboot
 ```
 
-{{< admonition tip >}}
-
-## 你知道吗
+{{< admonition tip 你知道吗 >}}
 
 - `open-vm-tools-desktop` 用于提供硬件加速、自适应分辨率和文件双向拖放等桌面环境下可能会用到的特性
 - Ubuntu 18.04 默认的软件源中没有 `open-vm-tools-dkms` ,但事实证明不装也不影响使用文件共享。
@@ -61,5 +59,5 @@ sudo vmhgfs-fuse -o allow_other .host:/ /mnt/hgfs
 
 ## 参考文献
 
-> - [Ubuntu中安装虚拟工具条open-vm-tools](https://jingyan.baidu.com/article/54b6b9c0982f2f2d593b4762.html)
-> - [在 VMware 虚拟机中安装 open-vm-tools](https://zhuanlan.zhihu.com/p/22488904)
+- [Ubuntu中安装虚拟工具条open-vm-tools](https://jingyan.baidu.com/article/54b6b9c0982f2f2d593b4762.html)
+- [在 VMware 虚拟机中安装 open-vm-tools](https://zhuanlan.zhihu.com/p/22488904)
