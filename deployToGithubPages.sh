@@ -18,7 +18,7 @@ git remote add origin git@github.com:Z4HD/Z4HD.github.io.git
 git add --all
 
 # Commit changes.
-msg="rebuilding site $(date -I)"
+msg="Rebuilding site $(date -I)"
 if [ -n "$*" ]; then
 	msg="$*"
 fi
@@ -27,6 +27,7 @@ git commit -m "$msg"
 # Push source and build repos.
 git push --force origin master
 
+# Clean up
 cd ..
 rm -rf deploy-target
 rm -rf public
