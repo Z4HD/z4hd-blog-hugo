@@ -5,7 +5,8 @@ date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
 tags: []
-category: 未分类
+categories: 
+    - 未分类
 
 featuredImage: ""
 featuredImagePreview: ""
