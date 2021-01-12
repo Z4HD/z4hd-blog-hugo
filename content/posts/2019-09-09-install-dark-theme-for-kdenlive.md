@@ -1,12 +1,13 @@
 ---
 title: 在 Ubuntu 18.04 中为 Kdenlive 安装黑色主题
 date: 2019-09-09T00:00:00.000Z
-draft: true
+draft: false
 tags:
     - GNU/Linux
     - KDE
     - Ubuntu
-category: 未分类
+categories: 
+    - 实用软件
 lightgallery: false
 ---
 

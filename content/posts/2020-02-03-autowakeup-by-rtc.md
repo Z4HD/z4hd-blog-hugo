@@ -1,8 +1,8 @@
 ---
 title: ASUS 笔记本使用 RTC Clock 设置 GNU/Linux 系统的自动开机
-date: 2020-02-03T12:05:31.000Z
-lastmod: 2021-01-12T09:43:55.897Z
-category: 运维
+date: 2020-02-03
+categories: 
+    - 运维
 draft: true
 ---
 
