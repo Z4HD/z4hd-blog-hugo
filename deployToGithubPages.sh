@@ -31,3 +31,4 @@ git push --force origin master
 cd ..
 rm -rf deploy-target
 rm -rf public
+rm -rf resources
