@@ -36,11 +36,11 @@ function getRTime(CustomTime,Tid){
 
 ### 使用方法
 
-在文档加载完成后调用一次```GetRTime（yourCustomTime，DisplayElementID）```函数即可。
+在文档加载完成后调用一次```GetRTime('yourCustomTime'，'DisplayElementID')```函数即可。
 
 参数1为目标时间，格式推荐```YY/MM/DD hh:mm:ss```或者其他可被```Date```对象接受的格式；参数2为展示倒计时内容的HTML标签的ID。
 
-### 演示
+### 示例
 
 ``` html
 距离2017年暑假还有：<span id="HT" style="color:red;"></span>
@@ -50,6 +50,7 @@ function getRTime(CustomTime,Tid){
 GetRTime('2017/7/14','HT');
 ```
 
+<!--
 距离2020年全面小康还有：<span id="HT" style="color:red;"></span>
 
 <script>
@@ -77,3 +78,4 @@ function GetRTime(CustomTime,Tid){
 }
 GetRTime('2020/1/1','HT');
 </script>
+-->
