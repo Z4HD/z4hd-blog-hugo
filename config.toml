@@ -1,5 +1,4 @@
 baseurl = "https://blog.z4hd.cf/"
-copyright = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://global.cdn.mikupics.cn/2021/01/19/403632dac116d.png" /></a><br />如无特殊标注，则本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。'
 enableGitInfo = true
 defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
@@ -27,6 +26,8 @@ defaultTheme = "dark"
 #description = "人活着就是为了死的"
 fingerprint = "sha256"
 #gitRepo = "https://github.com/Z4HD/z4hd-blog-hugo"
+[params.page.toc]
+enable = false
 
 [params.social]
 GitHub = "Z4HD"
@@ -60,9 +61,9 @@ hugo = true
 copyright = true
 # LoveIt 新增 | 0.2.0 是否显示作者
 author = true
-license = '如无特殊标注，则本页面采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。<br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>'
 # 网站创立年份
 since = 2017
+license = '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://global.cdn.mikupics.cn/2021/01/19/403632dac116d.png" /></a><br />如无特殊标注，则本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。'
 
 [params.search]
 enable = true
