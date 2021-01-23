@@ -7,6 +7,8 @@ tags:
 categories:
     - 运维
 date: 2018-06-10T13:23:34.000Z
+toc:
+    enable: true
 ---
 
 WSL Config (`wslconfig.exe`) 是一个用来管理运行于 *Windows上Linux子系统* 中 Linux 发行版的命令行工具。你可以用它列出当前已安装的Linux发行版、设置默认使用的发行版或者卸载发行版。

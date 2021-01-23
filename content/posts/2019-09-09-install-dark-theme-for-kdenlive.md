@@ -8,7 +8,8 @@ tags:
     - Ubuntu
 categories: 
     - 实用软件
-lightgallery: false
+toc:
+    enable: false
 ---
 
 在 Gnome 桌面环境下，刚装完 Kdenlive 时如果默认为白的发丑的界面，而且“主题”菜单下还只有一个“默认”，说明你的系统还没有安装适用于KDE桌面环境的主题。

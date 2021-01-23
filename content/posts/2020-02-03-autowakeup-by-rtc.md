@@ -4,6 +4,8 @@ date: 2020-02-03
 categories: 
     - 运维
 draft: true
+toc:
+    enable: true
 ---
 
 本文主要介绍在 GNU/Linux 系统中设置自动开机的一种方法，内容偏重于实际操作，关于 RTC Clock 的原理则一笔带过，并不再赘述*自动开机是什么为什么要自动开机自动开机在哪里*等尽人皆知的话题。

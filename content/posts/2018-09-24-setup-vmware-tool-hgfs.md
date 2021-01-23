@@ -8,7 +8,8 @@ tags:
 categories:
   - 运维
 draft: false
-description: 虚拟机与宿主间交换文件的方法之一
+toc:
+    enable: true
 ---
 
 为啥 `/mnt/hgfs` 空空如也？是配置的失误还是软件的故障？~~今晚8点，《社会与法》，准时播出~~
