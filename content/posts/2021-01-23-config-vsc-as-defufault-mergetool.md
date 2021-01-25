@@ -28,3 +28,7 @@ toc:
     cmd = code --wait --diff $LOCAL $REMOTE
 # Comment: End of "Extra Block"
 ```
+
+## 参考文献
+
+[How to use Visual Studio Code as the default editor for Git MergeTool](https://stackoverflow.com/questions/44549733/how-to-use-visual-studio-code-as-the-default-editor-for-git-mergetool) - Stack Overflow
