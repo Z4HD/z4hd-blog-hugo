@@ -1,5 +1,5 @@
 ---
-title: 配置 Visual Studio Code 作为 Git 默认合并工具
+title: 配置 Visual Studio Code 作为 Git 默认合并工具和对比工具
 date: 2021-01-23T07:32:43Z
 lastmod: 2021-01-23T07:32:43Z
 draft: true
@@ -9,8 +9,6 @@ categories:
     - 未分类
 featuredImage: ""
 lightgallery: false
-toc:
-    enable: false
 ---
 
 将下列内容添加到 `.gitconfig` 中
