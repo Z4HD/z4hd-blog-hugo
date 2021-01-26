@@ -2,9 +2,10 @@
 title: 配置 Visual Studio Code 作为 Git 默认合并工具和对比工具
 date: 2021-01-23T07:32:43Z
 lastmod: 2021-01-23T07:32:43Z
-draft: true
+draft: false
 tags:
     - git
+    - Visual Studio Code
 categories: 
     - 未分类
 featuredImage: ""
