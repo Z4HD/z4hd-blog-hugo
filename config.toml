@@ -26,6 +26,10 @@ defaultTheme = "dark"
 #description = "人活着就是为了死的"
 fingerprint = "sha256"
 #gitRepo = "https://github.com/Z4HD/z4hd-blog-hugo"
+
+[params.cdn]
+data = "jsdelivr.yml"
+
 [params.page.toc]
 enable = false
 
