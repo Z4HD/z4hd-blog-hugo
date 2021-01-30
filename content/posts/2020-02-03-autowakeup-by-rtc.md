@@ -24,15 +24,42 @@ toc:
 
 ### 检查自动开机状态
 
+执行以下命令获取当前RTC时钟的详细信息。
+
 ```shell
 cat /proc/driver/rtc
 ```
 
+输出示例如下
+
+```log
+rtc_time        : 22:17:23
+rtc_date        : 2021-01-30
+alrm_time       : 17:24:15
+alrm_date       : 2021-01-31
+alarm_IRQ       : no
+alrm_pending    : no
+update IRQ enabled      : no
+periodic IRQ enabled    : no
+periodic IRQ frequency  : 1024
+max user IRQ frequency  : 64
+24hr            : yes
+periodic_IRQ    : no
+update_IRQ      : no
+HPET_emulated   : no
+BCD             : yes
+DST_enable      : no
+periodic_freq   : 1024
+batt_status     : okay
+```
+
 | 名称 | 值 | 说明 |
-|:----:|:----:|:----:|
-|   `Alarm_IRQ`   |   yes/no   |    指示是否设置了自动开机  |
-|      |      |      |
-|      |      |      |
+|----:|:----|:----|
+| `rtc_time` | hh:mm:ss | RTC时间（硬件时钟/CMOS时间） |
+| `rtc_data` | yyyy-mm-dd | RTC日期（硬件时钟/CMOS日期） |
+| `alrm_time` | hh:mm:ss | 自动开机时间 |
+| `alrm_date` | yyyy-mm-dd | 自动开机日期 |
+| `alarm_IRQ` |   yes/no   | 指示是否设置了自动开机 |
 
 ### 设置自动开机
 
