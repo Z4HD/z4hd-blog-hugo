@@ -1,11 +1,14 @@
 ---
 title: ASUS 笔记本使用 RTC Clock 设置 GNU/Linux 系统的自动开机
-date: 2020-02-03
-categories: 
+date: 2020-02-03T00:00:00.000Z
+categories:
     - 运维
-draft: true
+draft: false
 toc:
     enable: true
+tags:
+    - GNU/Linux
+    - Ubuntu
 ---
 
 本文以 ASUS K42Jv 笔记本为例，主要介绍在 GNU/Linux 系统中设置自动开机的一种方法，内容偏重于实际操作，关于 RTC Clock 的原理则一笔带过，并不再赘述*自动开机是什么为什么要自动开机自动开机在哪里*等尽人皆知的话题。
@@ -97,7 +100,7 @@ batt_status     : okay
 ```
 
 | 名称 | 值 | 说明 |
-|----:|:----|:----|
+|:----|:----|:----|
 | `rtc_time` | hh:mm:ss | RTC时间（硬件时钟/CMOS时间） |
 | `rtc_data` | yyyy-mm-dd | RTC日期（硬件时钟/CMOS日期） |
 | `alrm_time` | hh:mm:ss | 自动开机时间 |
@@ -110,7 +113,7 @@ batt_status     : okay
 echo +$wakeup_time > /sys/class/rtc/rtc0/wakealarm
 ```
 
-`wakeup_time` 在*Linux.com上的某篇[^2]教程*中为需要自动开机时间的时间戳，但在部分 ASUS[^3] 笔记本上必须传入**需要自动开机的时间**与**当前时间**的时间戳之差（*也可以理解为经过指定秒数后自动开机*）才能成功设置自动开机。
+`$wakeup_time` 的数值与格式根据不同的主板可能略有差异。在*Linux.com上的某篇[^2]教程*中为需要自动开机时间的时间戳且开头没有`+`，但在部分 ASUS[^3] 笔记本上必须传入**需要自动开机的时间**与**当前时间**的时间戳之差（*也可以理解为经过指定秒数后自动开机*）才能成功设置自动开机。
 
 执行完该设置指令后无任何回显，需要检查 `alarm_IRQ` 的值是否为 `yes` 来判断设置是否成功。
 
@@ -120,8 +123,24 @@ echo +$wakeup_time > /sys/class/rtc/rtc0/wakealarm
 
 使用 Bash 脚本将时间换算为秒的工作交给计算机完成。下列例子借助 `date` 将用户输入的时间与当前时间做差，并将结果换算为秒数，最终传递给 `/sys/class/rtc/rtc0/wakealarm`。
 
+{{< admonition info >}}
+脚本可能需要根据实际情况进行修改。下方脚本仅供示例，在 `ASUS K42jv` with `Ubuntu 18.04` 上测试可用。
+{{< /admonition >}}
+
 ```Shell
-#TODO:EXAMPLE HERE
+#!/bin/bash
+# RUN AS ROOT!
+
+read -p "输入自动开机时间:" d1
+t1=$(date "+%s")
+t2=$(date -d "$d1" "+%s")
+
+t3=$(($t2-$t1))
+
+echo $t3
+
+echo +$t3 > /sys/class/rtc/rtc0/wakealarm
+cat /proc/driver/rtc
 ```
 
 ## 参考文献和注释
