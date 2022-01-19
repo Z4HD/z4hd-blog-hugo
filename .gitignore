@@ -1,5 +1,6 @@
 # Hugo default output directory
 /public
+deploy-target/
 
 # Hugo gen dir
 /resources
