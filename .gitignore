@@ -5,6 +5,9 @@ deploy-target/
 # Hugo gen dir
 /resources
 
+# Hugo lock file
+.hugo_build.lock
+
 # VSC Config
 .vscode/
 
