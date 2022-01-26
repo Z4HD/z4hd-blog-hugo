@@ -11,6 +11,10 @@ deploy-target/
 # VSC Config
 .vscode/
 
+# frontmatter
+frontmatter.json
+/.frontmatter
+
 ## OS Files
 # Windows
 Thumbs.db
