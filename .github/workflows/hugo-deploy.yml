@@ -1,4 +1,4 @@
-name: Deploy Hugo Static Pages
+name: Hugo Static
 
 on:
   push:
@@ -11,10 +11,12 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          lfs: true         # Download Git-LFS files
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -33,3 +35,4 @@ jobs:
           external_repository: Z4HD/Z4HD.github.io
           publish_branch: master  # default: gh-pages
           publish_dir: ./public
+          force_orphan: true # Make publish branch with only the latest commit.
