@@ -1,4 +1,4 @@
-name: Deploy 
+name: Deploy Hugo Static Pages
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: Z4HD/Z4HD.github.io
