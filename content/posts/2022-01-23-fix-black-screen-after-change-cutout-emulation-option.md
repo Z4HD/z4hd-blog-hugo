@@ -1,11 +1,11 @@
 ---
 title: 拯救因开启刘海屏模拟而黑屏的手机
 date: 2022-01-23T10:10:42.000Z
-lastmod: '2022-01-26T09:36:05.991Z'
+lastmod: 2022-04-30T06:11:27.665Z
 draft: false
 tags: []
 categories:
-    - 手机
+  - 手机
 featuredImagePreview: images/cutout-overlay-list.png
 ---
 
@@ -54,6 +54,7 @@ adb shell
 ```shell
 cmd overlay list | grep cutout
 ```
+
 {{< image src="images/cutout-overlay-list.png" caption="找到需要禁用的 Overlay" >}}
 
 `[x]` 开头的行就是当前已启用的用于模拟刘海屏的叠加层，本例中为 `com.android.internal.display.cutout.emulation.wide`，使用下列指令禁用之。
