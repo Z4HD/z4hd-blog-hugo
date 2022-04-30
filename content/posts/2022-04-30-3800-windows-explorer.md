@@ -2,8 +2,8 @@
 title: 来自 3800s 的 Windows 10
 subtitle: ""
 date: 2022-04-30T13:19:29+08:00
-lastmod: 2022-04-30T05:31:44.835Z
-draft: true
+lastmod: 2022-04-30T05:38:19.468Z
+draft: false
 tags:
   - Windows
 categories:
