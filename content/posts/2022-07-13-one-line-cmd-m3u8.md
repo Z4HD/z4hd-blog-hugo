@@ -2,8 +2,8 @@
 title: 一行命令使用 ffmpeg 下载 m3u8 视频流
 subtitle: ""
 date: 2022-07-13T10:23:36+08:00
-lastmod: 2022-07-13T02:50:09.535Z
-draft: true
+lastmod: 2022-07-13T02:55:02.746Z
+draft: false
 tags:
   - CLI
   - ffmpeg
