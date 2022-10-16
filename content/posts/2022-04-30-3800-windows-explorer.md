@@ -2,12 +2,13 @@
 title: 来自 3800s 的 Windows 10
 subtitle: ""
 date: 2022-04-30T13:19:29+08:00
-lastmod: 2022-04-30T05:38:19.468Z
+lastmod: 2022-10-16T14:57:07.996Z
 draft: false
 tags:
   - Windows
 categories:
   - 运维
+  - 故障排除
 
 featuredImage: ""
 featuredImagePreview: ""
