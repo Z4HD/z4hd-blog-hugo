@@ -5,4 +5,4 @@ menu = "main"
 weight = 4
 +++
 
-我很懒，暂时什么都没有写
+>Every cycle, a tragedy.
