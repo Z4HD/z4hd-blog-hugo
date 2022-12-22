@@ -14,7 +14,7 @@ link = "/"
 name = "Z4HD"
 
 [frontmatter]
-lastmod = ["lastmod", "：git", ":fileModTime", ":default"]
+lastmod = ["lastmod", ":git", ":fileModTime", ":default"]
 
 # Config need by theme
 
@@ -25,7 +25,7 @@ defaultTheme = "dark"
 # 描述
 #description = "人活着就是为了死的"
 fingerprint = "sha256"
-#gitRepo = "https://github.com/Z4HD/z4hd-blog-hugo"
+gitRepo = "https://github.com/Z4HD/z4hd-blog-hugo"
 
 [params.cdn]
 data = "jsdelivr.yml"
