@@ -8,10 +8,8 @@ tags: []
 categories: 
     - 未分类
 
-featuredImage: ""
 featuredImagePreview: ""
-
-lightgallery: false
+lightgallery: true
 ---
 
 Cut out summary from your post content here.

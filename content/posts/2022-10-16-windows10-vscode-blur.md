@@ -2,7 +2,7 @@
 title: Windows 10 Visual Studio Code 界面部分模糊的解决方案
 subtitle: 针对 NVIDIA 显卡用户
 date: 2022-10-16T22:37:21+08:00
-lastmod: 2022-10-16T15:13:17.474Z
+lastmod: 2022-12-22T03:28:14.314Z
 draft: false
 tags:
   - Windows
@@ -10,8 +10,8 @@ tags:
 categories:
   - 故障排除
 
-featuredImage: images/nv-control-panel-fxaa.png
-lightgallery: false
+featuredImagePreview: images/nv-control-panel-fxaa.png
+lightgallery: true
 ---
 
 ## 症状
