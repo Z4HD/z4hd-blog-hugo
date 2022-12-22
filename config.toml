@@ -3,6 +3,7 @@ enableGitInfo = true
 defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
 languageCode = "zh-CN"
+enableRobotsTXT = true
 
 title = "Z4HD's Blog"
 
@@ -114,6 +115,15 @@ weight = 2
 #title = ""
 #url = "/tags/"
 #weight = 3
+
+[[menu.main]]
+identifier = "rss"
+name = "RSS"
+post = ""
+pre = "<i class='fas fa-sharp fa-solid fa-rss'></i>"
+title = "快进到RSS订阅"
+url = "/index.xml"
+weight = 3
 
 # Hugo 解析文档的配置
 [markup]
