@@ -2,8 +2,8 @@
 title: ADB PULL vs MTP
 subtitle: 文件传输速度实际对比
 date: 2022-12-22T11:19:55+08:00
-lastmod: 2022-12-22T08:06:11.277Z
-draft: true
+lastmod: 2022-12-22T11:12:38.619Z
+draft: false
 tags:
   - ADB
 categories:
