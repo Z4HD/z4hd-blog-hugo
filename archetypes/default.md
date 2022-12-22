@@ -10,6 +10,9 @@ categories:
 
 featuredImagePreview: ""
 lightgallery: true
+
+toc:
+    enable: false
 ---
 
 Cut out summary from your post content here.
