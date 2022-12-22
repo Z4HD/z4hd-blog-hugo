@@ -1,9 +1,10 @@
 ---
 title: 拯救因开启刘海屏模拟而黑屏的手机
 date: 2022-01-23T10:10:42.000Z
-lastmod: 2022-12-22T03:27:55.153Z
+lastmod: 2022-12-22T11:44:25.320Z
 draft: false
-tags: []
+tags:
+  - ADB
 categories:
   - 手机
 featuredImagePreview: images/cutout-overlay-list.png
