@@ -1,7 +1,7 @@
 ---
 title: 打包备份 Android 手机的 Internal Storage 至电脑
 date: 2022-12-22T19:45:48+08:00
-lastmod: 2022-12-22T13:15:58.431Z
+lastmod: 2022-12-22T14:06:35.041Z
 draft: true
 
 tags:
@@ -59,7 +59,7 @@ TODO: 目前还没有找到能直接还原的方法。
 
 PowerShell 和 CMD 使用 `>` 无法得到正确的 tar 文件。
 
-CMD 产生的 tar 文件 （使用 `tar tvf` 验证，下同）
+CMD/git-bash 产生的 tar 文件 （使用 `tar tvf` 验证，下同）
 
 ```text
 gzip: stdin: unexpected end of file
