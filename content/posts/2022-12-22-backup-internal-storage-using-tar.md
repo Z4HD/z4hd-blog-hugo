@@ -1,8 +1,8 @@
 ---
-title: 打包备份 Android 手机的 Internal Storage 至电脑
+title: 打包备份 Android 手机的 Internal Storage 至 PC
 date: 2022-12-22T19:45:48+08:00
-lastmod: 2022-12-22T14:06:35.041Z
-draft: true
+lastmod: 2022-12-23T03:09:57.875Z
+draft: false
 
 tags:
   - ADB
@@ -18,15 +18,22 @@ toc:
 
 本文探讨一种备份 Internal Storage (内置存储)[^1] 的方法，具备下列特性：
 
-- 直接将备份文件顺序传输至PC，不产生额外的中间文件。
-- 支持 gzip/bzip2/xz 压缩[^2]（压缩相关运算在手机端CPU中进行）
-- 备份文件作为压缩包（tar），可以浏览文件列表或提取其中的部分文件。以及其他 tar archive 特性。
+- 直接将备份文件传输至PC，不产生额外的中间文件。
+- 支持 gzip/bzip2/xz 等压缩方式[^2]
+- 备份文件作为tar包，可以浏览文件列表或提取其中的部分文件。以及其他 tar archive 特性。
+- 使用管道（pipe）直接将 tar 包释放到内置存储，不产生额外的中间文件。
 
 <!--MORE-->
 
-{{< admonition warnring "平台支持" true >}}
+{{< admonition danger >}}
+**不当操作可能对您的设备和数据造成不可逆的损害。**
 
-平台支持：GNU/Linux，Windows (with **git-bash**)
+在执行任何ADB指令前务必进行细致的检查，确保已经理解将要进行的操作。
+{{< /admonition >}}
+
+{{< admonition warning "平台支持" true >}}
+
+平台支持：GNU/Linux，Windows (with [git-bash](https://gitforwindows.org/))
 
 详见：[*已知问题*](#已知问题)
 {{</admonition>}}
@@ -43,21 +50,67 @@ ADB有两个不包含在 help 中的命令：`exec-out` 和 `exec-in`。作用�
 
 ## 备份
 
-将 `/sdcard` 打包并用 gzip 压缩。不包含 `/sdcard/Android/`
+### GNU/Linux or Git Bash on Windows
+
+将 `/sdcard` 打包并在PC端用 gzip 压缩，压缩等级5。不包含 `/sdcard/Android/`
 
 ```shell
-./adb exec-out "cd /sdcard; tar -cz --exclude Android/ -f - ." > PATH_TO_BACKUP_FILE.tar.gz
+adb exec-out "cd /sdcard; tar -c --exclude Android/ -f - ." | gzip -5 > PATH_TO_BACKUP_FILE.tar.gz
 ```
 
-`--exclude Android/` 排除某个特定的目录，该选项可以根据实际情况修改并重复添加。详情参考 `man tar`。
+- `cd /sdcard;` Internal Storage路径，不同手机可能有区别。此项也用来指定 tar 包中的根目录。
+- `--exclude Android/` 排除某个特定的目录，该选项可以根据实际情况修改并重复添加。详情参考 `man tar`。
+- `-f -` 输出至标准输出。一般不用修改。
+- `.` 指定要包含在 tar 包中的目录，修改此项可以单独打包指定的文件夹。
+
+### Windows CMD 无压缩
+
+将 `/sdcard` 打包，无压缩。不包含 `/sdcard/Android/`
+
+```bat
+adb exec-out "cd /sdcard; tar -c --exclude Android/ -f - ." > PATH_TO_BACKUP_FILE.tar
+```
+
+### Windows CMD + 7z.exe
+
+将 `/sdcard` 打包并在PC端用 7z 压缩，默认压缩等级。不包含 `/sdcard/Android/`
+
+```bat
+adb exec-out "cd /sdcard; tar -c --exclude Android/ -f - ." | 7z a -si PATH_TO_BACKUP_FILE.tar.7z
+```
+
+可以在终端中看到7z输出当前已处理的数据量，四舍五入就是一个进度条。
 
 ## 还原
 
-TODO: 目前还没有找到能直接还原的方法。
+此处示例针对 `tar.7z`，`tar.gz` 使用标准 tar 命令即可处理，此处不再赘述。
+
+### 本地测试
+
+```shell
+7z x -so PATH_TO_BACKUP_FILE.tar.7z | tar tvf -
+```
+
+### 真机还原测试
+
+```shell
+7z x -so PATH_TO_BACKUP_FILE.tar.7z | adb exec-in "tar tvf - > /sdcard/test.log"
+adb shell "cat /sdcard/test.log"
+```
+
+### 解压 tar 包至 Internal Storage
+
+{{< admonition warning "警告" true >}}
+下列指令未经测试
+{{</admonition>}}
+
+```shell
+7z x -so PATH_TO_BACKUP_FILE.tar.7z | adb exec-in "tar xf - -C /sdcard/ 2>/sdcard/extract.log"
+```
 
 ## 已知问题
 
-PowerShell 和 CMD 使用 `>` 无法得到正确的 tar 文件。
+### 手机端 tar 压缩后文件在PC端得到 Unexpected EOF
 
 CMD/git-bash 产生的 tar 文件 （使用 `tar tvf` 验证，下同）
 
@@ -67,6 +120,12 @@ tar: Unexpected EOF in archive
 tar: Error is not recoverable: exiting now
 ```
 
+解决方案：移动端使用 `tar -c` 创建无压缩的 tar 文件，在PC端进行压缩。由于此操作用到管道(pipe)，而且要求压缩软件支持从标准输入读取，在 Windows 平台可能需要搭配 git-bash 或 WSL使用。或者使用CMD时仅保存无压缩的文件。
+
+*我不太会用CMD的pipe特性，而且只知道有7z.exe能够从标准输入读取，此处留给读者自行尝试将前文的命令改写为CMD兼容。*
+
+### PowerShell 使用 `>` 无法得到正确的 tar 文件
+
 PowerShell 产生的 tar 文件
 
 ```text
@@ -74,6 +133,8 @@ gzip: stdin: not in gzip format
 tar: Child returned status 1
 tar: Error is not recoverable: exiting now
 ```
+
+临时~~解决~~方案：不用 PowerShell
 
 ## 参考文献
 
