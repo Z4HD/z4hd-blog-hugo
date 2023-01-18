@@ -1,2 +1,2 @@
 #!/bin/sh
-hugo server --ignoreCache --gc --buildDrafts
+hugo server --ignoreCache --gc --buildDrafts --disableFastRender
