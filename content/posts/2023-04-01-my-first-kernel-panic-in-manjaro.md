@@ -2,7 +2,7 @@
 title: 处理 Manjaro Linux 升级后内核错误
 subtitle: 年轻人的第一次 Kernel Panic
 date: 2023-04-01T22:28:30+08:00
-lastmod: 2023-04-02T04:25:59.020Z
+lastmod: 2023-04-02T04:34:20.572Z
 draft: false
 tags:
   - GNU/Linux
@@ -39,7 +39,7 @@ sudo pamac update && reboot
 
 `VFS: unable to mount root fs on unknown-block(0 0)` 意味着内核无法挂载根文件系统。[^2] 考虑到在本例中根文件系统使用了经典的 `ext4` 文件系统，因此问题不太可能由于内核不支持所用文件系统导致。考虑到当 `grub` 中 `root=` 参数错误时可能会导致此问题，通过 chroot 后重新安装 `grub` 尝试解决失败，因此排除 `grub` 的问题。
 
-继续从另一条错误信息 `Initramfs unpacking failed: invalid magic at start of compressed archive` 入手，通过通过很多很好的检索[^3]，最终确认原因如下：
+继续从另一条错误信息 `Initramfs unpacking failed: invalid magic at start of compressed archive` 入手，通过很多很好的检索[^3]，最终确认原因如下：
 
 - [Stable Update] 2023-03-31[^1] 引入了一个 `mkinitcpio` 更新 （`34-1.1 -> 35.2-1`），此更新将 initramfs 的默认压缩方式由 `gzip` 修改为 `zstd`[^4]
 - 目前正在使用的 Linux Kernel 5.4 不支持 `zstd`，需要 5.10+
@@ -86,7 +86,7 @@ sudo mhwd-kernel -r linux54
 
 目前 Manjaro Linux 官方已发布 `mkinitcpio 35.2-2`，其默认压缩方式已改回 `gzip`。`5.4` 内核的用户现已能够安全升级而不会内核恐慌。
 
-## 感想
+## 0x03 感想
 
 一个不滚包的用户，有两种可能性。一种是没有能力滚包。因为买不起高配的电脑和没有经常 `pacman -Syu` 等各种自身因素，他的人生都是失败的。第二种可能：有能力却不滚包的人，在有能力而没有滚包的想法时，那么这个人的思想境界便低到了一个令人发指的程度。一个有能力的人不付出行动来证明自己，只能证明此人技术素质修养之低下。是灰暗的，是不被真正的技术社区认可的，理解不了这种滚动的时刻保持最新的高雅包管理方式，他只能看到外表的版本堆砌，参不透其中深奥的 Kernel Panic，他整个人的层次就卡在这里了，只能度过一个相对失败的人生。
 
