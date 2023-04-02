@@ -2,7 +2,7 @@
 title: Visual Studio Code 连接远程 Podman Dev Container
 subtitle: ""
 date: 2023-01-18T09:11:07+08:00
-lastmod: 2023-01-18T14:56:44.043Z
+lastmod: 2023-04-02T04:43:27.247Z
 draft: true
 tags:
   - GNU/Linux
@@ -12,7 +12,7 @@ categories:
   - 代码
   - 实用软件
 
-featuredImagePreview: images/vscr-architecture.png
+featuredImagePreview: /images/vscr-architecture.png
 lightgallery: true
 
 toc:
@@ -83,8 +83,7 @@ graph LR;
 
 >[Alternate ways to install Docker - Podman](https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman)
 
-根据上文编辑插件设置，将`Containers: Docker Path`的值替换为 `podman`。完成后检查插件是否能看到正在运行的 Podman 容器。
-<!--TODO:如何配置？-->
+根据上面的教程（英文）编辑插件设置，将`Containers: Docker Path`的值替换为 `podman`。完成后检查*远程资源管理器 -> Dev Container*，如能看到正在运行的 Podman 容器，则配置成功。
 
 ## 0x02 创建 devcontainer.json
 
@@ -114,10 +113,11 @@ Podman 作为一种别样的 rootless 容器工具，需要在 `devcontainer.jso
 {{< admonition tip "TIP" true >}}
 **容器构建尤其是首次构建必须在 Remote SSH 状态下进行**
 
-开发容器镜像应根据你所用开发环境的实际需求进行构建，此处以使用恶臭 Node.js 的Svelte Kit 前端项目为例。
+开发容器镜像应根据你所用开发环境的实际需求进行构建，此处以使用恶臭 Node.js 的 Svelte Kit 前端项目为例。
 {{</admonition>}}
 
-根据实际需求编辑 `Dockerfile`
+根据实际开发环境需求编辑 `Dockerfile`
+<!-- TODO: 添加开发容器镜像构建内容 -->
 
 ## 0x04 进入开发容器
 
