@@ -4,6 +4,9 @@ categories:
   - 代码
 date: 2017-07-25T11:38:15.000Z
 description: 从jb51.net上抄的脚本，本人对其略加改造。
+tags:
+  - JavaScript
+lastmod: 2023-04-18T02:47:20.724Z
 ---
 
 从[jb51.net](http://jb51.net/)上抄的脚本，本人对其略加改造。
