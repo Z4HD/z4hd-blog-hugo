@@ -2,7 +2,7 @@
 title: Visual Studio Code 连接远程 Podman Dev Container
 subtitle: ""
 date: 2023-01-18T09:11:07+08:00
-lastmod: 2023-10-15T03:44:25.776Z
+lastmod: 2023-10-15T06:27:49.415Z
 draft: false
 tags:
   - GNU/Linux
@@ -157,4 +157,4 @@ RUN npm -g config set registry=https://registry.npmmirror.com \
 
 - [Replacing Docker with Podman for your VSCode DevContainers](https://blog.lifeishao.com/2021/12/30/replacing-docker-with-podman-for-your-vscode-devcontainers/) *点评：此文主要介绍在 Windows 下连接本地WSL中运行的 Podman 的步骤*
 - Develop on a remote Docker host - [Connect using the Remote - SSH extension](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-the-remote-ssh-extension-recommended) *点评：此VSC文档提供了推荐的连接远程 docker host 中 Dev Containers 的步骤*
-- [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers) *点评：此VSC文档详细的介绍了 Dev Containers 的种种特性，__很长__，很详细。*
+- [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers) *点评：此VSC文档详细的介绍了 Dev Containers 的种种特性，**很长**，很详细。*
