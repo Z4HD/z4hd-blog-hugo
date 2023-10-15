@@ -2,8 +2,8 @@
 title: Visual Studio Code 连接远程 Podman Dev Container
 subtitle: ""
 date: 2023-01-18T09:11:07+08:00
-lastmod: 2023-04-02T04:43:27.247Z
-draft: true
+lastmod: 2023-10-15T03:44:25.776Z
+draft: false
 tags:
   - GNU/Linux
   - Visual Studio Code
@@ -11,10 +11,8 @@ tags:
 categories:
   - 代码
   - 实用软件
-
 featuredImagePreview: /images/vscr-architecture.png
 lightgallery: true
-
 toc:
   enable: true
 ---
@@ -77,11 +75,11 @@ graph LR;
 
 ## 0x01 连接远端SSH
 
->[Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)
+>阅读：[Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)
 
 完成上面的文档，我们已经有了一个SSH远程开发环境，此时可以在远端服务器中下载/克隆你的项目文件。
 
->[Alternate ways to install Docker - Podman](https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman)
+>阅读：[Alternate ways to install Docker - Podman](https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman)
 
 根据上面的教程（英文）编辑插件设置，将`Containers: Docker Path`的值替换为 `podman`。完成后检查*远程资源管理器 -> Dev Container*，如能看到正在运行的 Podman 容器，则配置成功。
 
@@ -108,6 +106,19 @@ Podman 作为一种别样的 rootless 容器工具，需要在 `devcontainer.jso
 
 上述设置可以避免VSC自动在开发容器中安装 `vscode-server` 时遇到 `mkdir: cannot create directory '/root': Permission denied`
 
+不要忘了添加自己喜欢的VSC插件。此处指定的插件会在容器内安装 code server 时自动安装。
+
+```json
+"customizations": {
+    "vscode": {
+      "extensions": [
+        "Gruntfuggly.todo-tree",
+        "mhutchie.git-graph"
+      ]
+    }
+  }
+```
+
 ## 0x03 构建开发容器镜像
 
 {{< admonition tip "TIP" true >}}
@@ -116,8 +127,27 @@ Podman 作为一种别样的 rootless 容器工具，需要在 `devcontainer.jso
 开发容器镜像应根据你所用开发环境的实际需求进行构建，此处以使用恶臭 Node.js 的 Svelte Kit 前端项目为例。
 {{</admonition>}}
 
-根据实际开发环境需求编辑 `Dockerfile`
-<!-- TODO: 添加开发容器镜像构建内容 -->
+根据实际开发环境需求编辑 `Dockerfile`，此处以一个典型的 Node.js 开发环境为例。包含最新版 `npm` 和 `cnmp`。
+
+```Dockerfile
+FROM node:18
+
+# Install basic development tools
+RUN apt update && apt install -y less man-db sudo
+
+# Ensure default `node` user has access to `sudo`
+ARG USERNAME=node
+RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+# Set `DEVCONTAINER` environment variable to help with orientation
+ENV DEVCONTAINER=true
+
+# Install cnpm (mainland network only)
+RUN npm -g config set registry=https://registry.npmmirror.com \
+    && npm install npm@latest -g \
+    && npm install cnpm -g
+```
 
 ## 0x04 进入开发容器
 

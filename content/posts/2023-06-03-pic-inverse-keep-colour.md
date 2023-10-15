@@ -2,12 +2,14 @@
 title: 图片颜色反相时保持色彩
 subtitle: ""
 date: 2023-06-03T19:49:41+08:00
-lastmod: 2023-06-03T12:43:51.618Z
-draft: true
-tags: []
+lastmod: 2023-10-15T03:01:37.087Z
+draft: false
+tags:
+  - GNU/Linux
+  - GIMP
 categories:
   - 实用软件
-featuredImagePreview: ""
+featuredImagePreview: /images/2023-10-15-inverse-eff.png
 lightgallery: true
 toc:
   enable: false
@@ -21,18 +23,18 @@ toc:
 
 以 [GIMP](https://www.gimp.org/) 为例，对待处理的图片依次执行下列命令：
 
-1. 颜色 -> 反向
-2. 颜色 -> 色相-浓度，将“色相（Range of affected hues）”设置为 `-180`
+1. 颜色 -> 色相-浓度，将“色相（Range of affected hues）”设置为 `-180`
+2. 颜色 -> 反相
 
 此时图片应为白底黑字，但除黑白灰外的其他颜色仍维持原色。
 
-<!-- 此处插入效果图 -->
+{{< image src="/images/2023-10-15-inverse-eff.png" caption="<-原图 | 效果图->" >}}
 
 如果需要对多张图片进行上述处理，推荐使用[BIMP](https://github.com/alessandrofrancesconi/gimp-plugin-bimp)插件，该插件为GIMP添加了批处理功能，与 Photoshop 中基于录制动作的批处理不同，BIMP需要用户在执行前手动编排动作指令及参数（指令序列可以导入导出）。
 
-中文版GIMP找对应指令名称可能需要参考对应的英文文档。
+中文版GIMP找对应指令名称可能需要参考对应的英文文档。下表内容仅供参考。
 
 中文名称 | 指令名
 :- | :-
-反向 | `gimp-drawable-invert`
 色相-浓度 | `gimp-drawable-hue-saturation`
+反向 | `gimp-drawable-invert`
