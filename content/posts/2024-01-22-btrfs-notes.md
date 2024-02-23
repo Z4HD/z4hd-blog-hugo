@@ -2,7 +2,7 @@
 title: Btrfs RAID1 故障处理笔记
 subtitle: 案例驱动的Btrfs手册
 date: 2024-01-22T23:10:51+08:00
-lastmod: 2024-01-28T15:57:17.486Z
+lastmod: 2024-02-23T06:28:30.009Z
 draft: true
 tags:
     - GNU/Linux
@@ -82,16 +82,57 @@ btrfs replace start -B <devid> <newdev> <mountpoint>
 mount -o rw,degraded <dev> <tmpdir>
 ```
 
-### 2. 删除丢失的设备
+### 2. 转换为single
+
+```shell
+btrfs balance start -f -sconvert=single,soft, -mconvert=dup,soft, -dconvert=single,soft, <mountpoint>
+```
+
+not test
+
+```shell
+btrfs balance start -f -sconvert=DUP -mconvert=DUP -dconvert=single <mount>
+```
+
+### 3. 删除丢失的设备
 
 ```shell
 btrfs device remove <devid> <path>
 ```
 
-### 3. 转换为single
+## 0x05 single 升级为 RAID1
+
+场景：加一块盘，将 single 数据盘与新盘组成 RAID1
+
+{{< admonition note "sda 还是 sda1 ?" true >}}
+
+虽然 btrfs-device 文档中，以单设备文件系统（single-device filesystem） 为例创建RAID1。但考虑到磁盘型号不同可能导致其最大可用容量存在微小的差别，因此笔者通过在每块硬盘上创建单个大小完全相同，且比最大可用容量略小的分区，以避免在未来更换硬盘时遇到可用容量不同的问题。
+
+无论是硬盘（sda）还是分区（sda1），都属于块设备，因此都能够被 btrfs device 处理。
+
+{{< /admonition >}}
+
+### 1. 添加新的块设备
+
+{{< admonition tip "TIPS" true >}}
+待添加的块设备（本例为：`/dev/sde1`）必须是空文件系统。如已创建文件系统，可使用 wipefs 清除之。
+
+否则会报错。
+
+```
+ERROR: /dev/sde1 appears to contain an existing filesystem (btrfs)
+```
+{{< /admonition >}}
 
 ```shell
-btrfs balance start -f -sconvert=single,soft, -mconvert=dup,soft, -dconvert=single,soft, <mountpoint>
+wipefs -a /dev/sde1
+btrfs device add /dev/sde1 /mnt
+```
+
+### 2. 转换为 RAID1
+
+```shell
+btrfs -v balance start -sconvert=raid1,soft -mconvert=raid1,soft -dconvert=raid1,soft <mount point>
 ```
 
 ## Reference
