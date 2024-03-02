@@ -28,8 +28,8 @@ defaultTheme = "dark"
 fingerprint = "sha256"
 gitRepo = "https://github.com/Z4HD/z4hd-blog-hugo"
 
-[params.cdn]
-data = "jsdelivr.yml"
+#[params.cdn]
+#data = "jsdelivr.yml"
 
 [params.page.toc]
 enable = false
