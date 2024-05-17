@@ -2,7 +2,7 @@
 title: Btrfs RAID1 故障处理笔记
 subtitle: 案例驱动的Btrfs手册
 date: 2024-01-22T23:10:51+08:00
-lastmod: 2024-02-23T06:28:30.009Z
+lastmod: 2024-05-17T06:10:27.330Z
 draft: true
 tags:
     - GNU/Linux
@@ -119,9 +119,10 @@ btrfs device remove <devid> <path>
 
 否则会报错。
 
-```
+```log
 ERROR: /dev/sde1 appears to contain an existing filesystem (btrfs)
 ```
+
 {{< /admonition >}}
 
 ```shell
@@ -137,5 +138,5 @@ btrfs -v balance start -sconvert=raid1,soft -mconvert=raid1,soft -dconvert=raid1
 
 ## Reference
 
-- https://unix.stackexchange.com/questions/227560/
-- https://serverfault.com/questions/1104331
+- [How to replace a device in BTRFS RAID-1 filesystem?](https://unix.stackexchange.com/questions/227560/) - Unix & Linux Stack Exchange
+- [linux - Can I replace a disk in btrfs raid1 without a reboot?](https://serverfault.com/questions/1104331) - Server Fault
