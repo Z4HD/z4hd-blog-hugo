@@ -1,9 +1,9 @@
 ---
-title: 后台运行的 podman 容器在当前用户退出SSH后离奇死亡？
+title: 防止后台运行的 podman 容器在当前用户退出SSH后离奇死亡
 subtitle: ""
 date: 2024-05-17T14:14:46+08:00
-lastmod: 2024-05-23T07:19:13.440Z
-draft: true
+lastmod: 2025-01-31T15:25:39.666Z
+draft: false
 tags:
     - GNU/Linux
 categories:
